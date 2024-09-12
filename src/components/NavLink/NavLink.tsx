@@ -10,7 +10,7 @@ export default function NavLink({type, text, path}: {type: "header" | "my-info";
 
     return (
         <Link href={path} className={`w-[96px] rounded-t-lg ${active ? "bg-[#DAE6F2]" : ""}`}>
-            <p className={`font-inter font-normal text-[${textSize}] text-black m-[16px]`}>{text}</p>
+            <p className={`font-inter font-normal text-black text-[${textSize}] m-[16px]`}>{text}</p>
         </Link>
     )
 }
