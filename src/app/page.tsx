@@ -1,12 +1,9 @@
 export default function Home() {
   return (
     <div>
-      <main>
-  Hello!
+      <main className="font-inter">
+          Hello!
       </main>
-      <footer>
-
-      </footer>
     </div>
   );
 }
