@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Inter } from "next/font/google"
 import "./globals.css";
+import styles from "./extra-stylex.module.css";
 import Header from "@/components/Header/header";
 
 const inter = Inter({
@@ -22,10 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased h-screen`}
+        className={`${inter.variable} antialiased`}
+      >
+      <div className={`sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto bg-[#F0F3F8]
+                      overflow-auto ${styles.scrollbar_none} ${styles.container_snap}`}
       >
         <Header />
         {children}
+      </div>
       </body>
     </html>
   );

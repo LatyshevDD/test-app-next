@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { SyntheticEvent } from 'react'
 
 // Хук возвращающий ширину экрана при ее изменении
 export const useResize = () => {

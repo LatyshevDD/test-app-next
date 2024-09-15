@@ -22,7 +22,7 @@ export default function NavLink({type, text, path, icon}: {type: "header" | "my-
 
     if (type === "my-info") {
         return (
-            <Link href={path} className={`flex justify-center items-center w-[96px] rounded-t-lg ${activeMyinfo ? "bg-white" : "bg-[#DAE6F2]"}`}>
+            <Link href={path} className={`flex justify-center items-center flex-1 rounded-t-lg ${activeMyinfo ? "bg-white" : "bg-[#DAE6F2]"}`}>
                 <p className={`font-inter font-normal text-black text-[${textSize}] m-[16px]`}>{text}</p>
                 {
                     icon === "arrow-bottom" ?
