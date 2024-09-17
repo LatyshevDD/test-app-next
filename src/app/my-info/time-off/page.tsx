@@ -1,7 +1,9 @@
 export default function TimeOff() {
     return (
-        <div className="flex flex-col w-[70vw] h-[81vh] ml-[24vw] bg-white">
+        <div className="flex xl:justify-end h-[81vh] xl:pl-[22vw] xl:pr-[5vw]">
+            <div className="flex flex-col w-full bg-white">
 
+            </div>
         </div>
     )
 }

@@ -13,7 +13,7 @@ import AvatarIcon from "@/images/avatar-icon.svg";
 
 export default function InfoSideBar() {
   return (
-      <aside className="flex flex-col gap-[16px] justify-between w-[225px] absolute left-[5vw] top-[13vmax]">
+      <aside className="hidden xl:flex flex-col gap-[16px] justify-between w-[16vw] absolute left-[5vw] top-[13vmax]">
         <div className="flex flex-col gap-[16px] py-[24px] px-[24px] bg-white rounded-2xl">
           <div className="flex flex-row gap-[8px]">
             <Image src={PhoneIcon} alt="phone-icon" width={16} height={16}/>

@@ -1,14 +1,16 @@
-import profilePhoto from "@/images/profile-photo.png";
 import Image from "next/image";
 import SettingsCheckbox from "@/components/settings-checkbox/settings-checkbox";
 import NavLink from "@/components/NavLink/NavLink";
 import InfoSideBar from "@/components/InfoSideBar/info-side-bar";
+import profilePhoto from "@/images/profile-photo.png";
+import dotedIcon from "@/images/doted-icon.svg";
+import styles from "@/app/extra-stylex.module.css"
 
 export default function MyInfoHeader() {
   return (
-      <div className="flex items-en bg-[#DAE6F2] pl-[7.6vw] pr-[5vw] relative">
+      <div className="flex items-end bg-[#DAE6F2] xl:pl-[7.6vw] xl:pr-[5vw] relative">
         <div className="flex flex-row pt-[60px] w-full justify-between items-end">
-          <div className="w-[12%] z-10">
+          <div className="w-[12%] z-10 hidden xl:block">
             <Image
                 src={profilePhoto}
                 alt="profile-photo"
@@ -19,17 +21,43 @@ export default function MyInfoHeader() {
                 }}
             />
           </div>
-          <div className="flex flex-col gap-[2vh] w-[72vw] self-end">
+          <div className="flex flex-col mx-auto gap-[2vh] w-[72vw] self-end">
             <div className="flex flex-row justify-between">
-              <h2 className="font-inter font-semibold text-[28px] text-black">Alexandra Kuibyshevskaya</h2>
-              <div className="flex flex-row justify-between w-[16vw]">
-                <SettingsCheckbox type="text" />
-                <SettingsCheckbox type="icon" />
+              <div className="flex flex-row gap-[22px]">
+                <div className="block xl:hidden w-[60px] h-[60px]">
+                  <Image
+                      src={profilePhoto}
+                      alt="profile-photo"
+                      sizes="100vw"
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                      }}
+                  />
+                </div>
+                <h2 className="font-inter font-semibold text-[20px] sm:text-[28px] text-black">Alexandra Kuibyshevskaya</h2>
+              </div>
+              <button className="block xl:hidden">
+                <Image
+                    src={dotedIcon}
+                    alt="doted-icon"
+                    sizes="100vw"
+                    width={16}
+                    height={16}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                    }}
+                />
+              </button>
+              <div className="hidden xl:flex flex-row justify-between w-[16vw]">
+                <SettingsCheckbox type="text"/>
+                <SettingsCheckbox type="icon"/>
               </div>
             </div>
-            <nav className="flex flex-row flex-nowrap items-end overflow-scroll overflow-x-hidden overflow-y-hidden">
-              <NavLink type="my-info" text="Personal" path="/my-info/personal" />
-              <NavLink type="my-info" text="Job" path="/my-info/job" />
+            <nav className={`flex flex-row flex-nowrap items-end overflow-scroll ${styles.scrollbar_none} ${styles.container_snap}`}>
+              <NavLink type="my-info" text="Personal" path="/my-info/personal"/>
+              <NavLink type="my-info" text="Job" path="/my-info/job"/>
               <NavLink type="my-info" text="Time Off" path="/my-info/time-off" />
               <NavLink type="my-info" text="Emergency" path="/my-info/emergency" />
               <NavLink type="my-info" text="Documents" path="/my-info/documents" />
