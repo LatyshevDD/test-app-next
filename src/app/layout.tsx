@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased`}
       >
       <div className={`sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto bg-[#F0F3F8]
-                      overflow-auto ${styles.scrollbar_none} ${styles.container_snap}`}
+                      overflow-x-hidden overflow-y-auto ${styles.scrollbar_none} ${styles.container_snap}`}
       >
         <Header />
         {children}
