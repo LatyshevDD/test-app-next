@@ -1,4 +1,6 @@
 'use client'
+
+import {useState} from "react";
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -10,26 +12,34 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import {ApolloProvider, gql} from "@apollo/client";
-import {client} from "@/utils/api";
+import {useMutation} from "@apollo/client";
+import {ADD_USER, getUser, LOGIN} from "@/utils/api";
+import {useProfileStore} from "@/utils/store";
 
 export default function LoginForm() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [login,{ data }] = useMutation(LOGIN);
+    const myProfile = useProfileStore((store) => store.myProfile);
+    const setMyProfile = useProfileStore((store) => store.setMyProfile);
 
     const handleSubmit = () => {
-        client
-            .query({
-                query: gql`
-                  query login($email: "john@mail.com", $password: "changeme") {
-                    access_token
-                    refresh_token
-                   }
-                  `,
+        login({ variables: { email: email, password: password }})
+            .then(() => {
+                localStorage.setItem("accessToken", data.login.access_token);
+                localStorage.setItem("refreshToken", data.login.refresh_token);
             })
-            .then((result) => console.log(result));
+            .then(() => {
+               getUser()
+                   .then(({data}) => {
+                       setMyProfile({id: data.myProfile.id, name: data.myProfile.name, avatar: data.myProfile.avatar})
+                    })
+                   .catch((error) => {console.log(error)})
+            })
+            .catch((error) => {console.log(error)});
     }
 
     return (
-        <ApolloProvider client={client}>
             <div className="flex items-center justify-center w-full h-screen absolute bg-black top-0">
                 <Card className="w-full max-w-sm">
                     <CardHeader>
@@ -41,11 +51,11 @@ export default function LoginForm() {
                     <CardContent className="grid gap-4">
                         <div className="grid gap-2">
                             <Label htmlFor="email">Email</Label>
-                            <Input id="email" type="email" placeholder="m@example.com" required />
+                            <Input value={email} id="email" type="email" placeholder="m@example.com" required onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="grid gap-2">
                             <Label htmlFor="password">Password</Label>
-                            <Input id="password" type="password" required />
+                            <Input value={password} id="password" type="password" required onChange={(e) => setPassword(e.target.value)} />
                         </div>
                     </CardContent>
                     <CardFooter>
@@ -53,7 +63,5 @@ export default function LoginForm() {
                     </CardFooter>
                 </Card>
             </div>
-        </ApolloProvider>
-
     )
 }

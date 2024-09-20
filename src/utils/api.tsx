@@ -1,7 +1,22 @@
-import { ApolloClient, InMemoryCache, gql} from '@apollo/client';
+import {ApolloClient, InMemoryCache, gql, createHttpLink} from '@apollo/client';
+import {setContext} from "@apollo/client/link/context";
+
+const httpLink = createHttpLink({
+  uri: 'https://api.escuelajs.co/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('accessToken');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  }
+});
 
 export const client = new ApolloClient({
-  uri: 'https://api.escuelajs.co/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 })
 
@@ -22,3 +37,21 @@ export const ADD_USER = gql`
       avatar
     }
   }`
+
+export const GET_USER = gql`
+  query GetUser {
+    myProfile {
+      id
+      name
+      avatar
+    }
+  }
+`
+export function getUser() {
+  return client.query({query: GET_USER});
+}
+
+// addUser({ variables: { name: "Denis",email: "denis@gmail.com", password: "1234", avatar: "https://api.lorem.space/image/face?w=150&h=220" }})
+//     .then((result) => console.log(result));
+
+// const [addUser, { data, loading, error }] = useMutation(ADD_USER);
