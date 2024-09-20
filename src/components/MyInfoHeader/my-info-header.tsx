@@ -5,6 +5,7 @@ import InfoSideBar from "@/components/InfoSideBar/info-side-bar";
 import profilePhoto from "@/images/profile-photo.png";
 import dotedIcon from "@/images/doted-icon.svg";
 import styles from "@/app/extra-stylex.module.css"
+import ExitProfile from "@/components/ExitProfile/exit-profile";
 
 export default function MyInfoHeader() {
   return (
@@ -35,7 +36,8 @@ export default function MyInfoHeader() {
                       }}
                   />
                 </div>
-                <h2 className="font-inter font-semibold text-[20px] sm:text-[28px] text-black">Alexandra Kuibyshevskaya</h2>
+                <h2 className="font-inter font-semibold text-[20px] sm:text-[28px] text-black">Alexandra
+                  Kuibyshevskaya</h2>
               </div>
               <button className="block xl:hidden">
                 <Image
@@ -55,21 +57,23 @@ export default function MyInfoHeader() {
                 <SettingsCheckbox type="icon"/>
               </div>
             </div>
-            <nav className={`flex flex-row flex-nowrap items-end overflow-scroll ${styles.scrollbar_none} ${styles.container_snap}`}>
+            <nav
+                className={`flex flex-row flex-nowrap items-end overflow-scroll ${styles.scrollbar_none} ${styles.container_snap}`}>
               <NavLink type="my-info" text="Personal" path="/my-info/personal"/>
               <NavLink type="my-info" text="Job" path="/my-info/job"/>
-              <NavLink type="my-info" text="Time Off" path="/my-info/time-off" />
-              <NavLink type="my-info" text="Emergency" path="/my-info/emergency" />
-              <NavLink type="my-info" text="Documents" path="/my-info/documents" />
-              <NavLink type="my-info" text="Notes" path="/my-info/notes" />
-              <NavLink type="my-info" text="Benefits" path="/my-info/benefits" />
-              <NavLink type="my-info" text="Training" path="/my-info/training" />
-              <NavLink type="my-info" text="Assets" path="/my-info/assets" />
-              <NavLink type="my-info" text="More" path="/my-info/more" icon="arrow-bottom" />
+              <NavLink type="my-info" text="Time Off" path="/my-info/time-off"/>
+              <NavLink type="my-info" text="Emergency" path="/my-info/emergency"/>
+              <NavLink type="my-info" text="Documents" path="/my-info/documents"/>
+              <NavLink type="my-info" text="Notes" path="/my-info/notes"/>
+              <NavLink type="my-info" text="Benefits" path="/my-info/benefits"/>
+              <NavLink type="my-info" text="Training" path="/my-info/training"/>
+              <NavLink type="my-info" text="Assets" path="/my-info/assets"/>
+              <NavLink type="my-info" text="More" path="/my-info/more" icon="arrow-bottom"/>
+              <ExitProfile/>
             </nav>
           </div>
         </div>
-        <InfoSideBar />
+        <InfoSideBar/>
       </div>
   )
 }

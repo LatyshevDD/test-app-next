@@ -13,14 +13,13 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {useMutation} from "@apollo/client";
-import {ADD_USER, getUser, LOGIN} from "@/utils/api";
+import {getUser, LOGIN} from "@/utils/api";
 import {useProfileStore} from "@/utils/store";
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [login,{ data }] = useMutation(LOGIN);
-    const myProfile = useProfileStore((store) => store.myProfile);
     const setMyProfile = useProfileStore((store) => store.setMyProfile);
 
     const handleSubmit = () => {
