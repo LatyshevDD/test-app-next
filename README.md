@@ -3,15 +3,14 @@
 Run:
 
 ```bash
+git clone git@github.com:LatyshevDD/test-app-next.git
+# then
 npm ci
 # then
 npm run start
 
 ```
-
-Ссылка на проект [http://localhost:3000]
-
-## Параметры входы
+## Параметры входа
 
 Логин - denis@gmail.com \
 Пароль - 1234
