@@ -47,6 +47,15 @@ export const GET_USER = gql`
     }
   }
 `
+
+export const REFRESH_TOKEN = gql`
+  mutation RefreshToken($refreshToken: String!) {
+    refreshToken(refreshToken: $refreshToken) {
+      access_token
+      refresh_token
+    }
+  }`
+
 export function getUser() {
   return client.query({query: GET_USER});
 }

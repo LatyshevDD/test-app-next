@@ -4,6 +4,7 @@ import "./globals.css";
 import styles from "./extra-stylex.module.css";
 import Header from "@/components/Header/header";
 import AppoloLayout from "@/components/AppoloLayout/appolo-layout";
+import TokenRefresh from "@/components/TokenRefresh/token-refresh";
 
 const inter = Inter({
     subsets: ['latin'],
@@ -22,18 +23,20 @@ export default function RootLayout({
 }>) {
   return (
       <AppoloLayout>
-        <html lang="en">
-        <body
-            className={`${inter.variable} antialiased`}
-        >
-        <div className={`sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto bg-[#F0F3F8]
+        <TokenRefresh>
+          <html lang="en">
+          <body
+              className={`${inter.variable} antialiased`}
+          >
+          <div className={`sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1440px] 2xl:max-w-[1536px] mx-auto bg-[#F0F3F8]
                       overflow-x-hidden overflow-y-auto ${styles.scrollbar_none} ${styles.container_snap}`}
-        >
-          <Header/>
-          {children}
-        </div>
-        </body>
-        </html>
+          >
+            <Header/>
+            {children}
+          </div>
+          </body>
+          </html>
+        </TokenRefresh>
       </AppoloLayout>
   );
 }

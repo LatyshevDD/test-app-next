@@ -1,6 +1,7 @@
 'use client'
 
 import {useState} from "react";
+import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -17,9 +18,11 @@ import {getUser, LOGIN} from "@/utils/api";
 import {useProfileStore} from "@/utils/store";
 
 export default function LoginForm() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const router = useRouter();
+    const [email, setEmail] = useState("denis@gmail.com");
+    const [password, setPassword] = useState("1234");
     const [login,{ data }] = useMutation(LOGIN);
+    // const [addUser, { data, loading, error }] = useMutation(ADD_USER);
     const setMyProfile = useProfileStore((store) => store.setMyProfile);
 
     const handleSubmit = () => {
@@ -35,7 +38,10 @@ export default function LoginForm() {
                     })
                    .catch((error) => {console.log(error)})
             })
+            .then(() => router.push("/my-info/time-off"))
             .catch((error) => {console.log(error)});
+    //     addUser({ variables: { name: "Denis",email: "denis@gmail.com", password: "1234", avatar: "https://api.lorem.space/image/face?w=150&h=220" }})
+    // .then((result) => console.log(result));
     }
 
     return (

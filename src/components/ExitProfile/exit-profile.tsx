@@ -1,13 +1,17 @@
 'use client'
+
 import {useProfileStore} from "@/utils/store";
+import {useRouter} from "next/navigation";
 
 export default function ExitProfile() {
-  const removeMyProfile = useProfileStore((store) => store.removeMyProfile)
+  const removeMyProfile = useProfileStore((store) => store.removeMyProfile);
+  const router = useRouter();
 
   const handleClick = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     removeMyProfile();
+    router.push("/login");
   }
   return (
       <button

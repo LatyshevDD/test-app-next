@@ -13,7 +13,7 @@ import {fakeApiHistory} from "@/constants";
 
 export default function TimeOff() {
     return (
-        <div className="flex xl:justify-end h-[81vh] xl:pl-[22vw] xl:pr-[5vw]">
+        <div className="flex xl:justify-end xl:pl-[22vw] xl:pr-[5vw]">
           <div className="flex flex-col w-full bg-white px-4 pt-10">
             <div className="flex justify-end sm:justify-between pb-[16px] border-b-2 border-b-[#7C96B1]">
               <div className="hidden sm:flex gap-[12px]">
