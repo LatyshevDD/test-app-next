@@ -7,10 +7,10 @@ export default function ExitProfile() {
   const removeMyProfile = useProfileStore((store) => store.removeMyProfile);
   const router = useRouter();
 
-  const handleClick = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
-    removeMyProfile();
+  const handleClick = async () => {
+    await localStorage.removeItem("accessToken");
+    await localStorage.removeItem("refreshToken");
+    await removeMyProfile();
     router.push("/login");
   }
   return (

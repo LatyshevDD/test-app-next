@@ -5,6 +5,15 @@ import {useMutation} from "@apollo/client";
 import {getUser, REFRESH_TOKEN} from "@/utils/api";
 import {useProfileStore} from "@/utils/store";
 
+// type dataType = {
+//   data: {
+//     refreshToken: {
+//       access_token: string,
+//       refresh_token: string
+//     }
+//   }
+// }
+
 export default function TokenRefresh({children}: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -27,7 +36,7 @@ export default function TokenRefresh({children}: Readonly<{
           .catch((err:string) => {
             if (err === 'jwt expired') {
               refreshToken({variables: {refreshToken: rToken}})
-                  .then((data) => {
+                  .then((data:any) => {
                     localStorage.setItem("refreshToken", data.refreshToken.refresh_token);
                     localStorage.setItem("accessToken", data.refreshToken.access_token);
                   })

@@ -6,6 +6,7 @@ import profilePhoto from "@/images/profile-photo.png";
 import dotedIcon from "@/images/doted-icon.svg";
 import styles from "@/app/extra-stylex.module.css"
 import ExitProfile from "@/components/ExitProfile/exit-profile";
+import ProfileName from "@/components/ProfileName/profile-name";
 
 export default function MyInfoHeader() {
   return (
@@ -36,8 +37,7 @@ export default function MyInfoHeader() {
                       }}
                   />
                 </div>
-                <h2 className="font-inter font-semibold text-[20px] sm:text-[28px] text-black">Alexandra
-                  Kuibyshevskaya</h2>
+                <ProfileName />
               </div>
               <button className="block xl:hidden">
                 <Image

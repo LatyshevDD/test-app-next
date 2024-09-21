@@ -40,7 +40,7 @@ export default function LoginForm() {
             })
             .then(() => router.push("/my-info/time-off"))
             .catch((error) => {console.log(error)});
-    //     addUser({ variables: { name: "Denis",email: "denis@gmail.com", password: "1234", avatar: "https://api.lorem.space/image/face?w=150&h=220" }})
+    //     addUser({ variables: { name: "Denis",email: "denis@gmail.com", password: "12345", avatar: "https://cache3.youla.io/files/images/780_780/5b/ba/5bba4723b5fc2dc012011943.jpg" }})
     // .then((result) => console.log(result));
     }
 

@@ -60,7 +60,7 @@ export function getUser() {
   return client.query({query: GET_USER});
 }
 
-// addUser({ variables: { name: "Denis",email: "denis@gmail.com", password: "1234", avatar: "https://api.lorem.space/image/face?w=150&h=220" }})
+// addUser({ variables: { name: "Denis",email: "denis@gmail.com", password: "1234", avatar: "https://cache3.youla.io/files/images/780_780/5b/ba/5bba4723b5fc2dc012011943.jpg" }})
 //     .then((result) => console.log(result));
 
 // const [addUser, { data, loading, error }] = useMutation(ADD_USER);
